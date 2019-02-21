@@ -7,6 +7,8 @@ namespace LinkShortener.GuiCommon.Interfaces
     {
         Link[] GetLinksByCreatorId(Guid creatorId);
 
+        Link GetLink(long id);
+
         Link AddLink(Link model);
 
         Link UpdateLink(Link model);

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(LinkShortener.Gui.Startup))]
-
+[assembly: OwinStartupAttribute(typeof(LinkShortener.Gui.Startup))]
 namespace LinkShortener.Gui
 {
     public partial class Startup

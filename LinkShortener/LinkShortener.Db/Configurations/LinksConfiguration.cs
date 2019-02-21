@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace LinkShortener.Db.Configurations
 {
-    internal class LinkConfiguration : EntityTypeConfiguration<Link>
+    internal class LinkConfiguration : EntityTypeConfiguration<LinkEntity>
     {
         public LinkConfiguration()
         {

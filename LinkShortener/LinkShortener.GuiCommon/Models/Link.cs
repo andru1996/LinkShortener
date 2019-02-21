@@ -7,7 +7,9 @@ namespace LinkShortener.GuiCommon.Models
     {
         public long Id { get; set; }
 
-        public long StringId { get; set; }
+        public string StringId { get; set; }
+
+        public string Url { get; set; }
 
         public Guid CreatorId { get; set; }
 

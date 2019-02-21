@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace LinkShortener.Db.Configurations
 {
-    internal class LinkClickConfiguration : EntityTypeConfiguration<LinkClick>
+    internal class LinkClickConfiguration : EntityTypeConfiguration<LinkClickEntity>
     {
         public LinkClickConfiguration()
         {

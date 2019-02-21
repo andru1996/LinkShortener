@@ -41,12 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesFactory.cs" />
     <Compile Include="Repositories\LinkClickRepository.cs" />
     <Compile Include="Repositories\LinkRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LinkShortener.Common\LinkShortener.Common.csproj">
+      <Project>{51D7D64C-3C48-4449-B1E1-6AE07D327372}</Project>
+      <Name>LinkShortener.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinkShortener.DbCommon\LinkShortener.DbCommon.csproj">
+      <Project>{9B0035D5-9BDA-43DA-AB60-0939CF617C2A}</Project>
+      <Name>LinkShortener.DbCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinkShortener.Db\LinkShortener.Db.csproj">
+      <Project>{3E581E50-0153-432B-AA9F-E9F10C96B553}</Project>
+      <Name>LinkShortener.Db</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LinkShortener.GuiCommon\LinkShortener.GuiCommon.csproj">
       <Project>{c7396bdf-02d8-400e-b679-9283b8b930e1}</Project>
       <Name>LinkShortener.GuiCommon</Name>

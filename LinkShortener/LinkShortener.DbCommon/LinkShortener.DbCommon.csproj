@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\EntityBase.cs" />
-    <Compile Include="Models\LinkClick.cs" />
-    <Compile Include="Models\Link.cs" />
+    <Compile Include="Models\LinkClickEntity.cs" />
+    <Compile Include="Models\LinkEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

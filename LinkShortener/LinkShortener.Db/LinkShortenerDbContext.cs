@@ -12,13 +12,13 @@ namespace LinkShortener.Db
         }
 
         public LinkShortenerDbContext()
-            : base()
+            : base("DefaultConnection")
         {
         }
 
-        public DbSet<Link> Links { get; set; }
+        public DbSet<LinkEntity> Links { get; set; }
 
-        public DbSet<Link> LinkClicks { get; set; }
+        public DbSet<LinkClickEntity> LinkClicks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
