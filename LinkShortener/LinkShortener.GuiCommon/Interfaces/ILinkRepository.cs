@@ -3,7 +3,7 @@ using System;
 
 namespace LinkShortener.GuiCommon.Interfaces
 {
-    interface ILinkRepository
+    public interface ILinkRepository
     {
         Link[] GetLinksByCreatorId(Guid creatorId);
 

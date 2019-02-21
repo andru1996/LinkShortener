@@ -2,7 +2,7 @@
 
 namespace LinkShortener.GuiCommon.Interfaces
 {
-    interface ILinkClickRepository
+    public interface ILinkClickRepository
     {
         LinkClick[] GetLinkClicksByLinkId(long linkId);
 
