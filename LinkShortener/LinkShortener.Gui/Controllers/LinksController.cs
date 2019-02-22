@@ -14,17 +14,26 @@ namespace LinkShortener.Gui.Controllers
     public class LinksController : Controller
     {
         ILinkRepository _linkRepository = RepositoriesFactory.GetLinkRepository();
+        ILinkClickRepository _linkClickRepository = RepositoriesFactory.GetLinkClickRepository();
 
         [HttpGet]
-        public RedirectResult MoveToUrl(string stringId)
+        [Route("~/{stringId}")]
+        public RedirectResult RedirectToLinkUrlByStringId(string stringId)
         {
             if (_linkRepository.GetLinkByStringId(stringId) is Link link)
             {
+                /*
+                _linkClickRepository.AddLinkClick(new LinkClick()
+                {
+                    LinkId = link.Id,
+                    PublishedAt = DateTimeOffset.Now,
+                });
+                */
                 return Redirect(link.Url);
             }
             else
             {
-                return Redirect("?????");
+                return Redirect("Home/Index");
             }
         }
 
@@ -85,7 +94,7 @@ namespace LinkShortener.Gui.Controllers
             return View(model);
         }
 
-        // GET: LinkEntities/Edit/5
+        [HttpGet]
         public ActionResult Edit(long? id)
         {
             if (id == null)
