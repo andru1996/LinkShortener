@@ -258,10 +258,6 @@
       <Project>{EF17C913-209C-4E3B-8BD8-8A2D7213BA8E}</Project>
       <Name>LinkShortener.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LinkShortener.DbCommon\LinkShortener.DbCommon.csproj">
-      <Project>{9B0035D5-9BDA-43DA-AB60-0939CF617C2A}</Project>
-      <Name>LinkShortener.DbCommon</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LinkShortener.GuiCommon\LinkShortener.GuiCommon.csproj">
       <Project>{C7396BDF-02D8-400E-B679-9283B8B930E1}</Project>
       <Name>LinkShortener.GuiCommon</Name>

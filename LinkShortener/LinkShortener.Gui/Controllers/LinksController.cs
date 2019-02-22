@@ -22,13 +22,11 @@ namespace LinkShortener.Gui.Controllers
         {
             if (_linkRepository.GetLinkByStringId(stringId) is Link link)
             {
-                /*
                 _linkClickRepository.AddLinkClick(new LinkClick()
                 {
                     LinkId = link.Id,
                     PublishedAt = DateTimeOffset.Now,
                 });
-                */
                 return Redirect(link.Url);
             }
             else
