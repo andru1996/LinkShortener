@@ -13,9 +13,9 @@ namespace LinkShortener.Data.Repositories
             DbLinkClickRepository.AddLinkClick(dbModel);
         }
 
-        public LinkClick[] GetLinkClicksByLinkId(long linkId)
+        public long GetLinkClicksCountByLinkId(long linkId)
         {
-            throw new NotImplementedException();
+            return DbLinkClickRepository.GetLinkClicksCountByLinkId(linkId);
         }
     }
 }

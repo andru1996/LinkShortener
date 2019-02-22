@@ -4,7 +4,7 @@ namespace LinkShortener.GuiCommon.Interfaces
 {
     public interface ILinkClickRepository
     {
-        LinkClick[] GetLinkClicksByLinkId(long linkId);
+        long GetLinkClicksCountByLinkId(long linkId);
 
         void AddLinkClick(LinkClick model);
     }

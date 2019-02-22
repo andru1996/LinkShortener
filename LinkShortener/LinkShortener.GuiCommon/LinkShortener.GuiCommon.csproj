@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\ILinkClickRepository.cs" />
     <Compile Include="Interfaces\ILinkRepository.cs" />
+    <Compile Include="Models\LinkWithClicksCount.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\LinkClick.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

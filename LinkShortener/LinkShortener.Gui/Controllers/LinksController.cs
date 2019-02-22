@@ -40,10 +40,11 @@ namespace LinkShortener.Gui.Controllers
         public ActionResult Index()
         {
             var userId = new Guid(User.Identity.GetUserId());
-            var models = _linkRepository.GetLinksByCreatorId(userId);
+            var models = _linkRepository.GetLinksWithClicksByCreatorId(userId);
+            var pathForLinkStringId = Helper.GetPathForLinkStringId(Request);
             foreach (var model in models)
             {
-                model.StringId = Helper.GetFullPathForLinkStringId(Request, model.StringId);
+                model.StringId = $"{pathForLinkStringId}{model.StringId}";
             }
             return View(models);
         }

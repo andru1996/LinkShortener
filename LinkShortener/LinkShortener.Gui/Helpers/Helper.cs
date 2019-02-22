@@ -23,13 +23,13 @@ namespace LinkShortener.Gui.Helpers
             return new string(chars.ToArray());
         }
 
-        public static string GetFullPathForLinkStringId(HttpRequestBase request, string stringId)
+        public static string GetPathForLinkStringId(HttpRequestBase request)
         {
             var scheme = request.Url.Scheme; // will get http, https, etc.
             var host = request.Url.Host; // will get www.mywebsite.com
             var port = request.Url.Port; // will get the port
             //var path = Request.Url.AbsolutePath; //request.Url.Authority
-            return $"{scheme}://{host}:{port}/{stringId}";
+            return $"{scheme}://{host}:{port}/";
         }
     }
 }
