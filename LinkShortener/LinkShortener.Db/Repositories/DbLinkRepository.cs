@@ -22,6 +22,14 @@ namespace LinkShortener.Db.Repositories
                 return db.Links.FirstOrDefault(x => x.Id == id);
             }
         }
+        
+        public static LinkEntity GetLinkByStringId(string stringId)
+        {
+            using (LinkShortenerDbContext db = new LinkShortenerDbContext())
+            {
+                return db.Links.FirstOrDefault(x => x.StringId == stringId);
+            }
+        }
 
         public static LinkEntity AddLink(LinkEntity model)
         {

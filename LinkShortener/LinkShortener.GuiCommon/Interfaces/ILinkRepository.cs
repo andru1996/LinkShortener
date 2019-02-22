@@ -9,6 +9,8 @@ namespace LinkShortener.GuiCommon.Interfaces
 
         Link GetLink(long id);
 
+        Link GetLinkByStringId(string stringId);
+
         Link AddLink(Link model);
 
         Link UpdateLink(Link model);

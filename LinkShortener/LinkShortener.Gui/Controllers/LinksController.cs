@@ -10,11 +10,26 @@ using System.Web.Mvc;
 namespace LinkShortener.Gui.Controllers
 {
     [Authorize]
-    public class LinkEntitiesController : Controller
+    [RoutePrefix("Links")]
+    public class LinksController : Controller
     {
         ILinkRepository _linkRepository = RepositoriesFactory.GetLinkRepository();
 
-        // GET: Links       
+        [HttpGet]
+        public RedirectResult MoveToUrl(string stringId)
+        {
+            if (_linkRepository.GetLinkByStringId(stringId) is Link link)
+            {
+                return Redirect(link.Url);
+            }
+            else
+            {
+                return Redirect("?????");
+            }
+        }
+
+        [HttpGet]
+        [Route("Index")]
         public ActionResult Index()
         {
             var userId = new Guid(User.Identity.GetUserId());
@@ -26,7 +41,8 @@ namespace LinkShortener.Gui.Controllers
             return View(models);
         }
 
-        // GET: Links/Details/5
+        [HttpGet]
+        [Route("Details")]
         public ActionResult Details(long? id)
         {
             if (id == null)

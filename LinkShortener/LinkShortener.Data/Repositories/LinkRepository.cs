@@ -14,6 +14,16 @@ namespace LinkShortener.Data.Repositories
             return models.Select(Converter.ConvertToGuiModel).ToArray();
         }
 
+        public Link GetLink(long id)
+        {
+            return Converter.ConvertToGuiModel(DbLinkRepository.GetLink(id));
+        }
+
+        public Link GetLinkByStringId(string stringId)
+        {
+            return Converter.ConvertToGuiModel(DbLinkRepository.GetLinkByStringId(stringId));
+        }
+
         public Link AddLink(Link model)
         {
             return Converter.ConvertToGuiModel(
@@ -31,11 +41,6 @@ namespace LinkShortener.Data.Repositories
             return Converter.ConvertToGuiModel(
                 DbLinkRepository.UpdateLink(
                     Converter.ConvertToDbModel(model)));
-        }
-
-        public Link GetLink(long id)
-        {
-            return Converter.ConvertToGuiModel(DbLinkRepository.GetLink(id));
-        }
+        }        
     }
 }
