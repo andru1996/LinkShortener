@@ -6,6 +6,30 @@ namespace LinkShortener.Data
 {
     public static class Converter
     {
+        public static UserBlockedStatus ConvertToGuiModel(UserBlockedStatusEntity model)
+        {
+            return model != null
+                ? new UserBlockedStatus
+                {
+                    Id = model.Id,
+                    UserId = model.UserId,
+                    PublishedAt = model.PublishedAt,
+                }
+                : null;
+        }
+
+        public static UserBlockedStatusEntity ConvertToDbModel(UserBlockedStatus model)
+        {
+            return model != null
+                ? new UserBlockedStatusEntity
+                {
+                    Id = model.Id,
+                    UserId = model.UserId,
+                    PublishedAt = model.PublishedAt,
+                }
+                : null;
+        }
+
         public static Link ConvertToGuiModel(LinkEntity model)
         {
             return model != null

@@ -45,6 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesFactory.cs" />
     <Compile Include="Repositories\LinkClickRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\LinkRepository.cs" />
   </ItemGroup>
   <ItemGroup>

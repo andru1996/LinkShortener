@@ -1,4 +1,5 @@
 ﻿using LinkShortener.DbCommon.Models;
+using System;
 using System.Linq;
 
 namespace LinkShortener.Db.Repositories
@@ -10,6 +11,7 @@ namespace LinkShortener.Db.Repositories
             using (LinkShortenerDbContext db = new LinkShortenerDbContext())
             {
                 model.Link = db.Links.Find(model.Link.Id);
+                model.PublishedAt = DateTimeOffset.Now;
                 db.LinkClicks.Add(model);
                 db.SaveChanges();
                 return model;

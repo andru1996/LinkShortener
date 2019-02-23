@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\UserBlockedStatus.cs" />
     <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\LinkClickEntity.cs" />
     <Compile Include="Models\LinkEntity.cs" />

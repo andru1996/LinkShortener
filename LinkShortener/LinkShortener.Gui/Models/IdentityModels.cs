@@ -17,6 +17,12 @@ namespace LinkShortener.Gui.Models
         }
     }
 
+    //public class ApplicationDbContext : IdentityDbContext<
+    //User, UserClaim, UserSecret, UserLogin,
+    //Role, UserRole, Token, UserManagement>
+    //{
+    //}
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         //public DbSet<LinkEntity> Links { get; set; }

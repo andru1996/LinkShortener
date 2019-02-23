@@ -15,26 +15,7 @@ namespace LinkShortener.Gui.Controllers
     {
         ILinkRepository _linkRepository = RepositoriesFactory.GetLinkRepository();
         ILinkClickRepository _linkClickRepository = RepositoriesFactory.GetLinkClickRepository();
-
-        [HttpGet]
-        [Route("~/{stringId}")]
-        public RedirectResult RedirectToLinkUrlByStringId(string stringId)
-        {
-            if (_linkRepository.GetLinkByStringId(stringId) is Link link)
-            {
-                _linkClickRepository.AddLinkClick(new LinkClick()
-                {
-                    LinkId = link.Id,
-                    PublishedAt = DateTimeOffset.Now,
-                });
-                return Redirect(link.Url);
-            }
-            else
-            {
-                return Redirect("Home/Index");
-            }
-        }
-
+        
         [HttpGet]
         [Route("Index")]
         public ActionResult Index()

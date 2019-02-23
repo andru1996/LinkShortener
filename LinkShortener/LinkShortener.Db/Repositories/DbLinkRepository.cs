@@ -35,6 +35,7 @@ namespace LinkShortener.Db.Repositories
         {
             using (LinkShortenerDbContext db = new LinkShortenerDbContext())
             {
+                model.PublishedAt = DateTimeOffset.Now;
                 db.Links.Add(model);
                 db.SaveChanges();
                 return model;

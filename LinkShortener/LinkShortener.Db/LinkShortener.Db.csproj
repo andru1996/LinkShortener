@@ -49,15 +49,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\LinkClickConfiguration.cs" />
-    <Compile Include="Configurations\LinksConfiguration.cs" />
+    <Compile Include="Configurations\UserConfiguration.cs" />
+    <Compile Include="Configurations\LinkConfiguration.cs" />
     <Compile Include="LinkShortenerDbContext.cs" />
     <Compile Include="Migrations\201902211807360_Init.cs" />
     <Compile Include="Migrations\201902211807360_Init.Designer.cs">
       <DependentUpon>201902211807360_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902251650583_add_t_UserBlockedStatuses.cs" />
+    <Compile Include="Migrations\201902251650583_add_t_UserBlockedStatuses.Designer.cs">
+      <DependentUpon>201902251650583_add_t_UserBlockedStatuses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DbLinkClickRepository.cs" />
+    <Compile Include="Repositories\DbUserRepository.cs" />
     <Compile Include="Repositories\DbLinkRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +86,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902211807360_Init.resx">
       <DependentUpon>201902211807360_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902251650583_add_t_UserBlockedStatuses.resx">
+      <DependentUpon>201902251650583_add_t_UserBlockedStatuses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

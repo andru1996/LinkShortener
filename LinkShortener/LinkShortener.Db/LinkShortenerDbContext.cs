@@ -20,10 +20,13 @@ namespace LinkShortener.Db
 
         public DbSet<LinkClickEntity> LinkClicks { get; set; }
 
+        public DbSet<UserBlockedStatusEntity> UserBlockedStatuses { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new LinkConfiguration());
             modelBuilder.Configurations.Add(new LinkClickConfiguration());
+            modelBuilder.Configurations.Add(new UserBlockedStatusConfiguration());
         }
     }
 }

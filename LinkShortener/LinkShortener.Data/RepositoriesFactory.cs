@@ -14,5 +14,10 @@ namespace LinkShortener.Data
         {
             return new LinkClickRepository();
         }
+
+        public static IUserRepository GetUserRepository()
+        {
+            return new UserRepository();
+        }
     }
 }
