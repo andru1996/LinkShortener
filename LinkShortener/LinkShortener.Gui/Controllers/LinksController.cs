@@ -6,6 +6,8 @@ using Microsoft.AspNet.Identity;
 using System;
 using System.Net;
 using System.Web.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LinkShortener.Gui.Controllers
 {
@@ -34,19 +36,22 @@ namespace LinkShortener.Gui.Controllers
                 return Redirect("Home/Index");
             }
         }
-
         [HttpGet]
         [Route("Index")]
-        public ActionResult Index()
+        public ActionResult Index(int pageNumber = 1)
         {
+            var pageSize = 4;
             var userId = new Guid(User.Identity.GetUserId());
             var models = _linkRepository.GetLinksWithClicksByCreatorId(userId);
+            var linksPerPages = models.Skip((pageNumber-1) * pageSize).Take(pageSize);
+
+         
             var pathForLinkStringId = Helper.GetPathForLinkStringId(Request);
-            foreach (var model in models)
+            foreach (var model in linksPerPages)
             {
                 model.StringId = $"{pathForLinkStringId}{model.StringId}";
             }
-            return View(models);
+            return View(linksPerPages);
         }
 
         [HttpGet]
