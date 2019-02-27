@@ -13,8 +13,7 @@ namespace LinkShortener.Gui.Controllers
     [RoutePrefix("Links")]
     public class LinksController : Controller
     {
-        ILinkRepository _linkRepository = RepositoriesFactory.GetLinkRepository();
-        ILinkClickRepository _linkClickRepository = RepositoriesFactory.GetLinkClickRepository();
+        private readonly ILinkRepository _linkRepository = RepositoriesFactory.GetLinkRepository();
         
         [HttpGet]
         [Route("Index")]

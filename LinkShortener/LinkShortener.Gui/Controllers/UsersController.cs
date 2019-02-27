@@ -13,10 +13,11 @@ namespace LinkShortener.Gui.Controllers
     [RoutePrefix("Users")]
     public class UsersController : Controller
     {
-        IUserRepository _userRepository = RepositoriesFactory.GetUserRepository();
+        private readonly IUserRepository _userRepository = RepositoriesFactory.GetUserRepository();
 
         [HttpGet]
         [Route("Index")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var context = new ApplicationDbContext();
@@ -40,6 +41,7 @@ namespace LinkShortener.Gui.Controllers
         }
 
         [Route("ChangeActiveStatus")]
+        [Authorize(Roles = "Admin")]
         public ActionResult ChangeActiveStatus(Guid userId, bool isActiveStatus)
         {
             if (isActiveStatus)

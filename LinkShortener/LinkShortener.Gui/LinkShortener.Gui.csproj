@@ -255,8 +255,13 @@
     <Content Include="Views\Links\Edit.cshtml" />
     <Content Include="Views\Links\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Redirect\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LinkShortener.Common\LinkShortener.Common.csproj">
+      <Project>{51D7D64C-3C48-4449-B1E1-6AE07D327372}</Project>
+      <Name>LinkShortener.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LinkShortener.Data\LinkShortener.Data.csproj">
       <Project>{EF17C913-209C-4E3B-8BD8-8A2D7213BA8E}</Project>
       <Name>LinkShortener.Data</Name>
@@ -279,9 +284,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Redirect\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
