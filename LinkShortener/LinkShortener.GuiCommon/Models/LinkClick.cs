@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace LinkShortener.GuiCommon.Models
 {
@@ -6,6 +7,7 @@ namespace LinkShortener.GuiCommon.Models
     {
         public long LinkId { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTimeOffset PublishedAt { get; set; }
     }
 }

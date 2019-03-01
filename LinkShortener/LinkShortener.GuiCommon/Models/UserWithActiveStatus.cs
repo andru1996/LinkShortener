@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace LinkShortener.GuiCommon.Models
 {
@@ -10,8 +11,9 @@ namespace LinkShortener.GuiCommon.Models
 
         public string Email { get; set; }
 
-        public bool IsActive { get; set; }        
+        public bool IsActive { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTimeOffset? BlockedStatusAt { get; set; }
     }
 }

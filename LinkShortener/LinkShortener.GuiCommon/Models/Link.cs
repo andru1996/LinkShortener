@@ -1,5 +1,6 @@
 ﻿using LinkShortener.Common.Enums;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace LinkShortener.GuiCommon.Models
 {
@@ -15,8 +16,10 @@ namespace LinkShortener.GuiCommon.Models
 
         public LinkStatus Status { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTimeOffset PublishedAt { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTimeOffset UpdateAt { get; set; }
     }
 }

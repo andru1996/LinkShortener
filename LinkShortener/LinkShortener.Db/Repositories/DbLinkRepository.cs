@@ -46,8 +46,12 @@ namespace LinkShortener.Db.Repositories
         {
             using (LinkShortenerDbContext db = new LinkShortenerDbContext())
             {
-                var dbModel = db.Links.Find(model.Id);
-                dbModel.StringId = model.StringId;
+                if (!(db.Links.Find(model.Id) is LinkEntity dbModel))
+                {
+                    return null;
+                }
+
+                dbModel.StringId = model.StringId ?? dbModel.StringId;
                 dbModel.Url = model.Url;
                 dbModel.Status = model.Status;
                 dbModel.UpdateAt = DateTimeOffset.Now;

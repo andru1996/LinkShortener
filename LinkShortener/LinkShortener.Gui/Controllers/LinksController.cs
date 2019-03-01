@@ -25,6 +25,9 @@ namespace LinkShortener.Gui.Controllers
             foreach (var model in models)
             {
                 model.StringId = $"{pathForLinkStringId}{model.StringId}";
+                model.Url = model.Url?.Length < 35
+                    ? model.Url
+                    : model.Url.Substring(0, 32)+"...";
             }
             return View(models);
         }
@@ -42,6 +45,8 @@ namespace LinkShortener.Gui.Controllers
             {
                 return HttpNotFound();
             }
+            var pathForLinkStringId = Helper.GetPathForLinkStringId(Request);
+            model.StringId = $"{pathForLinkStringId}{model.StringId}";
             return View(model);
         }
 
@@ -115,6 +120,8 @@ namespace LinkShortener.Gui.Controllers
             {
                 return HttpNotFound();
             }
+            var pathForLinkStringId = Helper.GetPathForLinkStringId(Request);
+            model.StringId = $"{pathForLinkStringId}{model.StringId}";
             return View(model);
         }
 
