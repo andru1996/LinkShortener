@@ -256,6 +256,7 @@
     <Content Include="Views\Links\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Redirect\Error.cshtml" />
+    <Content Include="Views\Links\AllLinks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LinkShortener.Common\LinkShortener.Common.csproj">

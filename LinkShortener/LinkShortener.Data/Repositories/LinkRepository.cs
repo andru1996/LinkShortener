@@ -15,6 +15,12 @@ namespace LinkShortener.Data.Repositories
             return models.Select(Converter.ConvertToGuiModel).ToArray();
         }
 
+        public Link[] GetAllLinks()
+        {
+            var models = DbLinkRepository.GetAllLinks();
+            return models.Select(Converter.ConvertToGuiModel).ToArray();
+        }
+
         public LinkWithClicksCount[] GetLinksWithClicksByCreatorId(Guid creatorId)
         {
             var linkClicksRepository = new LinkClickRepository();
@@ -22,8 +28,26 @@ namespace LinkShortener.Data.Repositories
             List<LinkWithClicksCount> result = new List<LinkWithClicksCount>();
             foreach (var model in models)
             {
-                var item = new LinkWithClicksCount(model);
-                item.ClicksCount = linkClicksRepository.GetLinkClicksCountByLinkId(model.Id);
+                var item = new LinkWithClicksCount(model)
+                {
+                    ClicksCount = linkClicksRepository.GetLinkClicksCountByLinkId(model.Id)
+                };
+                result.Add(item);
+            }
+            return result.ToArray();
+        }
+
+        public LinkWithClicksCount[] GetAllLinksWithClicks()
+        {
+            var linkClicksRepository = new LinkClickRepository();
+            var models = GetAllLinks();
+            List<LinkWithClicksCount> result = new List<LinkWithClicksCount>();
+            foreach (var model in models)
+            {
+                var item = new LinkWithClicksCount(model)
+                {
+                    ClicksCount = linkClicksRepository.GetLinkClicksCountByLinkId(model.Id)
+                };
                 result.Add(item);
             }
             return result.ToArray();
@@ -56,6 +80,6 @@ namespace LinkShortener.Data.Repositories
             return Converter.ConvertToGuiModel(
                 DbLinkRepository.UpdateLink(
                     Converter.ConvertToDbModel(model)));
-        }        
+        }
     }
 }

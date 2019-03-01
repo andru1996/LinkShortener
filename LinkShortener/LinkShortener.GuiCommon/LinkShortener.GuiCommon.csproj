@@ -45,6 +45,7 @@
     <Compile Include="Interfaces\ILinkClickRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\ILinkRepository.cs" />
+    <Compile Include="Models\LinkWithUserEmailAndClicksCount.cs" />
     <Compile Include="Models\LinkWithClicksCount.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\LinkClick.cs" />

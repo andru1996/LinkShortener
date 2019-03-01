@@ -7,7 +7,11 @@ namespace LinkShortener.GuiCommon.Interfaces
     {
         Link[] GetLinksByCreatorId(Guid creatorId);
 
+        Link[] GetAllLinks();
+
         LinkWithClicksCount[] GetLinksWithClicksByCreatorId(Guid creatorId);
+
+        LinkWithClicksCount[] GetAllLinksWithClicks();
 
         Link GetLink(long id);
 

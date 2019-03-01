@@ -15,6 +15,14 @@ namespace LinkShortener.Db.Repositories
             }
         }
 
+        public static LinkEntity[] GetAllLinks()
+        {
+            using (LinkShortenerDbContext db = new LinkShortenerDbContext())
+            {
+                return db.Links.ToArray();
+            }
+        }
+
         public static LinkEntity GetLink(long id)
         {
             using (LinkShortenerDbContext db = new LinkShortenerDbContext())
@@ -70,5 +78,7 @@ namespace LinkShortener.Db.Repositories
                 db.SaveChanges();
             }
         }
+
+        
     }
 }

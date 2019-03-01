@@ -4,8 +4,11 @@ using LinkShortener.GuiCommon.Interfaces;
 using LinkShortener.GuiCommon.Models;
 using Microsoft.AspNet.Identity;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using LinkShortener.Gui.Models;
 
 namespace LinkShortener.Gui.Controllers
 {
@@ -30,6 +33,31 @@ namespace LinkShortener.Gui.Controllers
                     : model.Url.Substring(0, 32)+"...";
             }
             return View(models);
+        }
+
+        [HttpGet]
+        [Route("AllLinks")]
+        [Authorize(Roles = "Admin")]
+        public ActionResult AllLinks()
+        {
+            //var userId = new Guid(User.Identity.GetUserId());
+            var models = _linkRepository.GetAllLinksWithClicks();
+            var pathForLinkStringId = Helper.GetPathForLinkStringId(Request);
+            var allLinks = new List<LinkWithUserEmailAndClicksCount>();
+            var context = new ApplicationDbContext();
+            var allUsers = context.Users.ToList();
+            foreach (var model in models)
+            {
+                model.StringId = $"{pathForLinkStringId}{model.StringId}";
+                model.Url = model.Url?.Length < 35
+                    ? model.Url
+                    : model.Url.Substring(0, 32) + "...";
+                var link = new LinkWithUserEmailAndClicksCount(model);
+                link.UserEmail = allUsers.FirstOrDefault(x => new Guid(x.Id) == model.CreatorId)?.Email;
+                link.ClicksCount = model.ClicksCount;
+                allLinks.Add(link);
+            }
+            return View(allLinks.ToArray());
         }
 
         [HttpGet]

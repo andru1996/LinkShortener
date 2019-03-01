@@ -32,6 +32,7 @@
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <li>@Html.ActionLink("Пользователи", "Index", "Users")</li>
+                        <li>@Html.ActionLink("Все ссылки", "AllLinks", "Links")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
